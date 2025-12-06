@@ -1,4 +1,4 @@
-public class Persona {
+public class Persona1 {
     String nombre;
     String apellido;
 
@@ -11,7 +11,7 @@ public class Persona {
     public static void main(String[] args) {
         System.out.println("Creacion de objetos de la clase persona");
         // intanciar = crear nuevo objeto
-        Persona objeto1 = new Persona();
+        Persona1 objeto1 = new Persona1();
         objeto1.nombre = "Layla";
         objeto1.apellido = "Acosta";
         System.out.println("Persona 1");
@@ -20,7 +20,7 @@ public class Persona {
         System.out.println( );
 
         System.out.println("Persona 2");
-        Persona objeto2 = new Persona();
+        Persona1 objeto2 = new Persona1();
         objeto2.nombre = "Daniela";
         objeto2.apellido = "Cardona";
 

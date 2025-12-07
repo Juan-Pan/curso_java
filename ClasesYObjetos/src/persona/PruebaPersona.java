@@ -5,7 +5,7 @@ public class PruebaPersona {
         System.out.println("***Creacion de objetos de la clase persona***");
         //intanciamos un nuevo objeto
         Persona persona1 = new Persona("Juan","Pedrin");
-        persona1.mostrarPersona();
+        System.out.println(persona1); //de manera automatica se muestra el metodo toString
     }
     
 }

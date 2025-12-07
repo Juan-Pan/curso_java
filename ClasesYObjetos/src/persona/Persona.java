@@ -11,6 +11,12 @@ public class Persona {
         this.apellido = apellido;
     }
 
+    //toString
+    @Override
+    public String toString(){
+        return "Nombre: " + this.nombre + ", Apellido: "+ this.apellido + ", direccion de memoria: "+ super.toString();
+    }
+
     // metodos
     public String getnombre() // lee informacion y la retorna
     {

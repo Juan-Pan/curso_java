@@ -1,20 +1,27 @@
 package persona;
 
+
+
 public class Persona {
+    private static int contadorPersonas = 0;
+    private int idPersona;
     private String nombre;
     private String apellido;
+
 
     // constructor
 
     public Persona(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
+        Persona.contadorPersonas++;
+        this.idPersona = Persona.contadorPersonas;
     }
 
     //toString
     @Override
     public String toString(){
-        return "Nombre: " + this.nombre + ", Apellido: "+ this.apellido + ", direccion de memoria: "+ super.toString();
+        return "Id Persona: "+this.idPersona+ " Nombre: " + this.nombre + ", Apellido: "+ this.apellido + ", direccion de memoria: "+ super.toString();
     }
 
     // metodos
@@ -41,5 +48,9 @@ public class Persona {
     // metodos adicionales
     public void mostrarPersona() {
         System.out.println("Nombre: " + this.nombre + " Apellido: " + this.apellido);
+    }
+    public static int getContadorPersonas()
+    {
+        return Persona.contadorPersonas;
     }
 }

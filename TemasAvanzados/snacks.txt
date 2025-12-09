@@ -1,0 +1,5 @@
+1,Papas,80.2
+2,Refresco,2.2
+3,Fideos,10.12
+4,chocolate,20.6
+5,cafe,1.12

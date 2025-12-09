@@ -54,6 +54,10 @@ public class Snack implements Serializable {
     {
         return "Snack{"+ "IdSnack: "+this.idSnack+", Nombre: "+"\'"+ this.nombre + "\'" + ", Precio: " + this.precio + "}\n";
     }
+    public String escribirSnack()
+    {
+        return this.idSnack + ","+ this.nombre + "," + this.precio;
+    }
 
     @Override
     public int hashCode() {

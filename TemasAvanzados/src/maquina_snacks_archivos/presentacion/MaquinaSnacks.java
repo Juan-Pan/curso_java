@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import maquina_snacks_archivos.dominio.Snack;
 import maquina_snacks_archivos.servicio.IServicioSnacks;
-import maquina_snacks_archivos.servicio.SevicioSnacksLista;
+import maquina_snacks_archivos.servicio.SevicioSnacksArchivos;
 
 public class MaquinaSnacks {
 
@@ -19,7 +19,7 @@ public class MaquinaSnacks {
         Scanner console = new Scanner(System.in);
         //Creamos el objeto para obtener el servicio de snacks (lista)
 
-        IServicioSnacks servicioSnacks = new SevicioSnacksLista();
+        IServicioSnacks servicioSnacks = new SevicioSnacksArchivos();
 
         // Creamos la lista de productos tipo snack
         List<Snack> productos = new ArrayList<>();
@@ -46,7 +46,8 @@ public class MaquinaSnacks {
                 1. Comprar Snack
                 2. Mostrar ticket
                 3. Agregar Nuevo Snack
-                4. Salir
+                4. Mostrar Inventario
+                5. Salir
                 Elije una opcion:\s""");
 
         // Leemos y retornamos
@@ -59,7 +60,8 @@ public class MaquinaSnacks {
             case 1 -> comprarSnack(consola, productos, servicioSnacks);
             case 2 -> mostrarTicket(productos);
             case 3 -> agregarSnack(consola, servicioSnacks);
-            case 4 -> {
+            case 4 -> listarInventario(consola, servicioSnacks);
+            case 5 -> {
                 System.out.println("Gracias por su tiempo... ");
                 salir = true;
             }
@@ -86,15 +88,19 @@ public class MaquinaSnacks {
             System.out.println("Id de snack no encontrado: " + idSnack);
         }
     }
+    private static void listarInventario(Scanner consola, IServicioSnacks servicioSnacks)
+    {
+        servicioSnacks.mostrarSnacks();
+    }
 
     private static void mostrarTicket(List<Snack> productos) {
         String ticket = "***Ticket de Venta***";
-        double total = 0.0f;
+        double total = 0.0;
         for (Snack snack : productos) {
-            ticket = ticket + "\n\t- " + snack.getNombre() + " - $" + snack.getPrecio();
+            ticket = ticket + String.format("\n\t- %s - $%.2f", snack.getNombre(), snack.getPrecio());
             total = snack.getPrecio() + total;
         }
-        ticket += "\n\tTotal -> " + total;
+        ticket += String.format("\n\tTotal -> $%.2f", total);
         System.out.println(ticket);
     }
 
@@ -103,7 +109,7 @@ public class MaquinaSnacks {
         String nombre = consola.nextLine();
         System.out.print("Precio del snack: ");
         double precio = Double.parseDouble(consola.nextLine());
-       servicioSnacks.agragarSnack(new Snack(nombre, precio));
+       servicioSnacks.agregarSnack(new Snack(nombre, precio));
         System.out.println("Tu snack se ha agregado correctamente");
         servicioSnacks.mostrarSnacks();
     }

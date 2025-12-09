@@ -13,7 +13,7 @@ public class SevicioSnacksLista implements IServicioSnacks{
         snacks.add(new Snack("Uvas", 20.20));
     }
     @Override
-    public void agragarSnack(Snack snack)
+    public void agregarSnack(Snack snack)
     {
         snacks.add(snack);
     }
@@ -33,4 +33,5 @@ public class SevicioSnacksLista implements IServicioSnacks{
     {
         return snacks;
     }
+   
 }

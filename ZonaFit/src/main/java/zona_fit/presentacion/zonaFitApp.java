@@ -157,6 +157,8 @@ public class zonaFitApp {
                 System.out.println("Saliendo, gracias por usar el programa...");
                 salir = true;
             }
+
+            default -> System.out.println("Opción no reconocida: "+ opcion);
         }
         return salir;
     }

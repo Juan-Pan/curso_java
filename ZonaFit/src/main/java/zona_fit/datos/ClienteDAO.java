@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static zona_fit.conexion.Conexion.getConexion;
+
 import zona_fit.dominio.Cliente;
 
 public class ClienteDAO implements IClienteDAO {
@@ -56,8 +57,7 @@ public class ClienteDAO implements IClienteDAO {
             return true;
         } catch (Exception e) {
             System.out.println("Error al agregar cliente: " + e.getMessage());
-        } 
-        finally {
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
@@ -65,7 +65,7 @@ public class ClienteDAO implements IClienteDAO {
 
             }
         }
-         return false;
+        return false;
 
     }
 
@@ -110,8 +110,7 @@ public class ClienteDAO implements IClienteDAO {
             return true;
         } catch (Exception e) {
             System.out.println("Error al eliminar cliente: " + e.getMessage());
-        } 
-        finally {
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
@@ -127,7 +126,7 @@ public class ClienteDAO implements IClienteDAO {
         PreparedStatement ps;
         Connection con = getConexion();
         String sql = "UPDATE cliente SET nombre = ?, apellido = ?, membresia = ? " + " WHERE id = ?";
-        try { 
+        try {
             ps = con.prepareStatement(sql);
             ps.setString(1, cliente.getNombre());
             ps.setString(2, cliente.getApellido());
@@ -137,8 +136,7 @@ public class ClienteDAO implements IClienteDAO {
             return true;
         } catch (Exception e) {
             System.out.println("Error al modificar cliente: " + e.getMessage());
-        } 
-        finally {
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
@@ -146,57 +144,8 @@ public class ClienteDAO implements IClienteDAO {
 
             }
         }
-            
+
         return false;
     }
 
-    public static void main(String[] args) {
-       ClienteDAO clienteDao = new ClienteDAO();
-
-        // buscar por id
-        // Cliente cliente1 = new Cliente(2);
-        // System.out.println("Cliente antes de la busqueda: " + cliente1);
-        // boolean encontrado = clienteDao.buscarClientePorId(cliente1);
-        // if (encontrado) {
-        //     System.out.println("Cliente encontrado: " + cliente1);
-        // } else {
-        //     System.out.println("No se encontro cliente: " + cliente1.getId());
-        // }
-        // agregar cliente
-        // Cliente clienteNuevo = new Cliente("harold", "Lopez", 700);
-        // boolean agregado = clienteDao.agregarCliente(clienteNuevo);
-        // if (agregado) {
-        //     System.out.println("Cliente agregado correctamente : " + clienteNuevo);
-        // } else {
-        //     System.out.println("No se pudo agregar el cliente: " + clienteNuevo);
-        // }
-
-        //modificar clienten
-        // Cliente modificarCliente = new Cliente(2, "Carlos", "Sanchez", 1000);
-        //  boolean modificado = clienteDao.modificarCliente(modificarCliente);
-        //  if (modificado) {
-        //      System.out.println("Cliente modificado correctamente : " + modificarCliente);
-        //  }
-        //  else {
-        //      System.out.println("No se pudo modificar el cliente: " + modificarCliente);
-        //  }
-         // eliminar cliente 
-        Cliente eliminarCliente = new Cliente(5);
-        boolean eliminado = clienteDao.eliminarCliente(eliminarCliente);
-        if (eliminado) {
-        System.out.println("Cliente eliminado correctamente : " + eliminarCliente);
-        }
-        else{
-        System.out.println("No se pudo eliminar el cliente: " + eliminarCliente);
-        }
-         // listar clientes
-        // System.out.println("Listar clientes");
-        
-         List<Cliente> clientes = clienteDao.listarClientes();
-         for (Cliente cliente : clientes) {
-         System.out.println(cliente);
-         }
-         
-
-    }
 }

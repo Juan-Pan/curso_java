@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-    <appender name="STDOUT" class = "ch.qos.logback.core.ConsoleAppender">
+    <!-- Configuración del appender para la consola con formato mejorado -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <!-- <pattern>[%thread] %-5level: %logger - %msg%n</pattern> -->
+            <!--
+            Patrón de formato mejorado:
+            %d{HH:mm:ss} - hora con formato HH:mm:ss
+            [%-5level] - nivel de log (INFO, ERROR, DEBUG, etc.) con ancho mínimo de 5
+            %logger{36} - nombre de la clase (máximo 36 caracteres)
+            %msg - mensaje del log
+            %n - salto de línea
+            -->
             <pattern>%msg</pattern>
         </encoder>
     </appender>
-    <root level = "info">
-        <appender-ref ref = "STDOUT"/>
+
+    <!-- Configuración del nivel de log y appender raíz -->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

@@ -2,6 +2,7 @@ package com.pan.com.zona_fit.repositorio;
 
 import com.pan.com.zona_fit.modelo.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * Interfaz ClienteRepositorio que extiende JpaRepository.
@@ -11,7 +12,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * El tipo genérico &lt; Cliente, Integer&gt; indica que:
  * - Cliente: es la entidad que se va a persistir en la BD
  * - Integer: es el tipo de dato de la clave primaria (ID del cliente)
+ *
+ * Anotación @Repository: indica que esta interfaz es un repositorio de Spring
+ * que será gestionado automáticamente por el contenedor de inyección de dependencias.
  */
+@Repository
 public interface ClienteRepositorio extends JpaRepository<Cliente, Integer> {
     // Esta interfaz hereda los métodos básicos de JpaRepository:
     // - save(): guardar o actualizar un cliente

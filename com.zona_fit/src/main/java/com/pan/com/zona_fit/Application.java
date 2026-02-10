@@ -184,6 +184,7 @@ public class Application implements CommandLineRunner {
                 logger.info(nl + "Gracias por usar la APP" + nl);
                 salir = true;
             }
+            default -> logger.info(nl + "Opción no reconocida, intente de nuevo" + nl);
         }
         return salir;
     }

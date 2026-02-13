@@ -1,17 +1,37 @@
 import com.formdev.flatlaf.FlatDarculaLaf;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Forma extends JFrame {
     // Panel principal creado por el diseñador (.form) y asociado como contenido.
     private JPanel panelPrincipal;
     // Campo de texto que se coloca en el panel del formulario.
     private JTextField campoTexto;
+    private JLabel replicadorLabel;
 
     public Forma()
     {
         // Configura la ventana al construirse.
         inicializarForma();
+     //   campoTexto.addActionListener(e ->
+     //   {
+     //       replicarTexto();
+     //   });
+        campoTexto.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                super.keyTyped(e);
+                replicarTexto();
+            }
+        });
+    }
+    private void replicarTexto()
+    {
+        this.replicadorLabel.setText(this.campoTexto.getText());
     }
     private void inicializarForma()
     {

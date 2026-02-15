@@ -23,7 +23,7 @@ import java.util.Scanner;
  * - @ComponentScan: escanea componentes automáticamente
  * - @EnableAutoConfiguration: activa la configuración automática de Spring
  */
-@SpringBootApplication
+//@SpringBootApplication
 public class Application implements CommandLineRunner {
 
     /**

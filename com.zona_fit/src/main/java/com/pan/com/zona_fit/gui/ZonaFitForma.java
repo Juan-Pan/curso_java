@@ -57,6 +57,8 @@ public class ZonaFitForma extends  JFrame{
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
+
+        //evitamos la edicion de los campos en la tabla
         this.tablaModeloClientes = new DefaultTableModel(0, 4){
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -66,6 +68,8 @@ public class ZonaFitForma extends  JFrame{
         String[] cabeceros = {"Id", "Nombre", "Apellido", "Membresía"};
         this.tablaModeloClientes.setColumnIdentifiers(cabeceros );
         this.clientesTabla = new JTable(this.tablaModeloClientes);
+        // restringir la seleccion de la tabla a un solo registro
+        this.clientesTabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         // Cargado de listar clientes
         listarClientes();

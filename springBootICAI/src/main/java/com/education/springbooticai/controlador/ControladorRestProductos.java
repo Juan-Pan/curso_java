@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import jakarta.validation.Valid;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -38,4 +40,12 @@ public class ControladorRestProductos {
         productos.put(productoNuevo.nombre(), productoNuevo);
         return productoNuevo;
     }
+    @GetMapping
+    @RequestMapping()
+    @ResponseStatus(HttpStatus.OK)
+    public List<ModeloProducto> lista() {
+        return new ArrayList<>(productos.values());
+    }
+
+
 }

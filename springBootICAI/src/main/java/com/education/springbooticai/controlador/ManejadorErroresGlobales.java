@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ManejadorErroresGlobales {
-    @ExceptionHandler(ExceptionProductoIncorrecto.class)
+    @ExceptionHandler(ExcepcionProductoIncorrecto.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public List<ModeloCampoIncorrecto> productoIncorrecto(ExceptionProductoIncorrecto ex) {
+    public List<ModeloCampoIncorrecto> productoIncorrecto(ExcepcionProductoIncorrecto ex) {
         return ex.getErrores().stream()
                 .map(error -> new ModeloCampoIncorrecto(
                         error.getDefaultMessage(),

@@ -13,16 +13,16 @@ public class Operacion {
 
     @ManyToOne
     @JoinColumn(nullable = false, name = "usuario_id")
-    private Usuario usuario;
+    public Usuario usuario;
 
     @ManyToOne
     @JoinColumn(nullable = false, name = "cliente_id")
-    private Cliente cliente;
+    public Cliente cliente;
 
     @Column(nullable = false)
-    private String tipo;
+    public String tipo;
     @Column(nullable = false)
-    private Date fecha;
+    public Date fecha;
 
     //setters
 

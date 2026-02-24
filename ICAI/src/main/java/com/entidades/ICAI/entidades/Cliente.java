@@ -12,8 +12,8 @@ public class Cliente {
     public String dni;
 
     @Column(nullable = false)
-    private String nombre;
+    public String nombre;
 
     @Column(nullable = false)
-    private String email;
+    public String email;
 }

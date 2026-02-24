@@ -9,7 +9,7 @@ public class Cliente {
     private Long Id;
 
     @Column(nullable = false, unique = true)
-    private String dni;
+    public String dni;
 
     @Column(nullable = false)
     private String nombre;

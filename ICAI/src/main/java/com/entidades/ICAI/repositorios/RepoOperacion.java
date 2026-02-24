@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface RepoOperacion extends CrudRepository<Operacion,Long> {
     List<Operacion> findOperacionByCliente(Cliente cliente);
+
 }
